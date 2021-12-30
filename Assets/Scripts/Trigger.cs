@@ -6,21 +6,24 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField] private Renderer myObject;
     bool needsRoll = false;
-    float timer = 10;
-    float percentChance = 0.1f;
+    float timer = 3;
+    //float percentChance = 0.1f;
     //float randomValue = Random.Range(0.0f, 20.0f);
+    void Start()
+    {
+        timer = 5 + Random.value * 10;
+    }
+
     void Update()
     {
         //Debug.Log(timer);
         if (timer <= 0)
         {
-            if (Random.value <= percentChance)
-            {
-                timer = 10;
-                needsRoll = true;
-                Debug.Log("needsroll");
-                myObject.material.color = Color.red;
-            }
+            timer = 5 + Random.value * 10;
+            needsRoll = true;
+            Debug.Log("needsroll");
+            myObject.material.color = Color.red;
+
         }
         else
         {
@@ -36,6 +39,7 @@ public class Trigger : MonoBehaviour
             Debug.Log("rollgiven");
             needsRoll = false;
             myObject.material.color = Color.gray;
+            GameManager.points += 5;
         }
 
     }

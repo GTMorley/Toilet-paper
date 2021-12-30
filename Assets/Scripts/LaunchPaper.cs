@@ -9,7 +9,7 @@ public class LaunchPaper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,10 +17,9 @@ public class LaunchPaper : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject ball = Instantiate(projectile, transform.position, 
-                                                     transform.rotation);
-            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 
-                                                (0, launchVelocity,0));
+            GameObject ball = Instantiate(projectile, transform.position, transform.rotation);
+            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, launchVelocity, 0));
+            GameManager.points -= 1;
         }
     }
 }
