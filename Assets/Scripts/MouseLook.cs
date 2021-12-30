@@ -11,7 +11,7 @@ public class MouseLook : MonoBehaviour
 
     public bool lockCursor = true;
 
-    void Start ()
+    void Start()
     {
         Vector3 rot = transform.rotation.eulerAngles;
         rotY = rot.y;
@@ -19,7 +19,7 @@ public class MouseLook : MonoBehaviour
 
     }
 
-    void Update ()
+    void Update()
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = -Input.GetAxis("Mouse Y");
@@ -32,7 +32,7 @@ public class MouseLook : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = rotation;
 
-        Cursor.lockState = lockCursor?CursorLockMode.Locked:CursorLockMode.None;
+        Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
     }
 }
